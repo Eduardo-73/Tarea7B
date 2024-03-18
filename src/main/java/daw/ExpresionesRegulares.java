@@ -29,6 +29,9 @@ public class ExpresionesRegulares {
         System.out.println("Ej 5");
         String pasen = "ecorara446";
         System.out.println(iPasen(pasen));
+        System.out.println("Ej 6");
+        String palabra = "ABCDE";
+        System.out.println(tamaño5NiFRK(palabra));
         System.out.println("Ej 7");
         String hardSoft = "sfsagsagsaSoftwarefsfafsagaf341hardware";
         System.out.println(hardwareSoftware(hardSoft));
@@ -37,7 +40,7 @@ public class ExpresionesRegulares {
     private static boolean nombreAutopista(String autopista) {
         boolean match = false;
         if (autopista.matches("^AP-\\d{1,}$")) {
-            return match = true;
+            match = true;
         }
         return match;
     }
@@ -47,7 +50,7 @@ public class ExpresionesRegulares {
         Pattern padre = Pattern.compile("^\\d{4}[A-Z]{3}$");
         Matcher madre = padre.matcher(matricula);
         if (madre.matches()) {
-            return encontrado = true;
+            encontrado = true;
         }
 
         return encontrado;
@@ -58,7 +61,7 @@ public class ExpresionesRegulares {
         Pattern padre = Pattern.compile("[a-z]{1}[0-9]{1}");
         Matcher madre = padre.matcher(letraNum);
         if (madre.find()) {
-            return encontrado = true;
+            encontrado = true;
         }
 
         return encontrado;
@@ -79,16 +82,24 @@ public class ExpresionesRegulares {
         Pattern padre = Pattern.compile("^([a-z]{7}|[a-z]{8})\\d{3}$");
         Matcher madre = padre.matcher(usuario);
         if (madre.matches()) {
-            return encontrado = true;
+            encontrado = true;
         }
         return encontrado;
+    }
+
+    private static boolean tamaño5NiFRK(String patron) {
+        boolean match = false;
+        if (patron.matches("[ABCDEGHIJLMNÑOPQSTUVWXYZ]{5}")) {
+            match = true;
+        }
+        return match;
     }
 
     private static boolean hardwareSoftware(String hS) {
         boolean encontrado = false;
         Pattern padre = Pattern.compile("[hH]ardware|[sS]oftware");
         Matcher madre = padre.matcher(hS);
-        while (madre.find()){
+        while (madre.find()) {
             encontrado = true;
         }
         return encontrado;
